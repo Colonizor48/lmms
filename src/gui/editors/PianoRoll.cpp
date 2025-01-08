@@ -104,7 +104,9 @@ const int KEY_AREA_MIN_HEIGHT = DEFAULT_KEY_LINE_HEIGHT * 10;
 const int PR_BOTTOM_MARGIN = SCROLLBAR_SIZE;
 const int PR_TOP_MARGIN = 18;
 const int PR_RIGHT_MARGIN = SCROLLBAR_SIZE;
-
+const int DEFAULT_NOTE_NUMBER = 12;
+const static std::vector<QString> DEFAULT_NOTE_STRINGS {"C", "C\u266F / D\u266D", "D", "D\u266F / E\u266D", "E", "F", "F\u266F / G\u266D", 
+	"G", "G\u266F / A\u266D", "A", "A\u266F / B\u266D", "B"};
 
 // width of area used for resizing (the grip at the end of a note)
 const int RESIZE_AREA_WIDTH = 9;
@@ -113,6 +115,7 @@ const int RESIZE_AREA_WIDTH = 9;
 const int NOTE_EDIT_LINE_WIDTH = 3;
 
 // key where to start
+// make this variable
 const int INITIAL_START_KEY = Octave::Octave_4 + Key::C;
 
 // number of each note to provide in quantization and note lengths
@@ -120,19 +123,18 @@ const int NUM_EVEN_LENGTHS = 6;
 const int NUM_TRIPLET_LENGTHS = 5;
 
 SimpleTextFloat * PianoRoll::s_textFloat = nullptr;
-
-static std::array<QString, 12> s_noteStrings {
-	"C", "C\u266F / D\u266D", "D", "D\u266F / E\u266D", "E", "F", "F\u266F / G\u266D", 
-	"G", "G\u266F / A\u266D", "A", "A\u266F / B\u266D", "B"
-};
-
+//TODO, make this variable
+static std::vector<QString> s_noteStrings = DEFAULT_NOTE_STRINGS;
+//TODO, make this variable
+      YP7Y7g4D%+gyILbr~"H/ 
 static QString getNoteString(int key)
 {
-	return s_noteStrings[key % 12] + QString::number(static_cast<int>(FirstOctave + key / KeysPerOctave));
-}
+	return s_noteStrings[key % DEFAULT_NOTE_NUMBER] + QString::number(static_cast<int>(FirstOctave + key / KeysPerOctave));
+};
 
 // used for drawing of piano
-std::array<PianoRoll::KeyType, 12> PianoRoll::prKeyOrder
+// also make this variable
+std::array<PianoRoll::KeyType, DEFAULT_NOTE_NUMBER> PianoRoll::prKeyOrder
 {
 	KeyType::WhiteSmall, KeyType::Black, KeyType::WhiteBig, KeyType::Black,
 	KeyType::WhiteSmall, KeyType::WhiteSmall, KeyType::Black, KeyType::WhiteBig,

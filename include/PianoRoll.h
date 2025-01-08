@@ -127,6 +127,7 @@ public:
 	void setGhostMidiClip( MidiClip* newMidiClip );
 	void loadGhostNotes( const QDomElement & de );
 	void loadMarkedSemiTones(const QDomElement & de);
+	//void changePianoRoleNoteNames();
 
 	inline void stopRecording()
 	{

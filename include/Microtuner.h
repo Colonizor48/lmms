@@ -43,7 +43,7 @@ public:
 	int currentScale() const {return m_scaleModel.value();}
 	int currentKeymap() const {return m_keymapModel.value();}
 
-	BoolModel *enabledModel() {return &m_enabledModel;}
+@s		BoolModel *enabledModel() {return &m_enabledModel;}
 	ComboBoxModel *scaleModel() {return &m_scaleModel;}
 	ComboBoxModel *keymapModel() {return &m_keymapModel;}
 	BoolModel *keyRangeImportModel() {return &m_keyRangeImportModel;}

@@ -75,7 +75,7 @@ enum class Octave : int
 };
 
 const int FirstOctave = -1;
-const int KeysPerOctave = 12;
+const int KeysPerOctave = 12; //make this variable
 
 constexpr inline auto operator+(Octave octave, Key key) -> int
 {
